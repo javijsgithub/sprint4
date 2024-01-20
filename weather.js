@@ -34,36 +34,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var button = document.querySelector('.container button');
-var jokeText = document.querySelector('.container p');
-document.addEventListener('DOMContentLoaded', getJoke);
-if (button) {
-    button.addEventListener('click', getJoke);
-}
-function getJoke() {
+//const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+//const apiKey = '38ad19818cf52b088ef524b6d468839d';
+document.addEventListener('DOMContentLoaded', getWeather);
+function getWeather() {
     return __awaiter(this, void 0, void 0, function () {
-        var jokeData, jokeObj, error_1;
+        var response, weatherData, weatherContainer, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 3, , 4]);
-                    return [4 /*yield*/, fetch('https://icanhazdadjoke.com/', {
+                    return [4 /*yield*/, fetch("".concat('https://api.openweathermap.org/data/2.5/weather', "?q=BARCELONA&appid=").concat('38ad19818cf52b088ef524b6d468839d', "&units=metric"), {
                             headers: {
                                 'Accept': 'application/json'
                             }
                         })];
                 case 1:
-                    jokeData = _a.sent();
-                    return [4 /*yield*/, jokeData.json()];
+                    response = _a.sent();
+                    return [4 /*yield*/, response.json()];
                 case 2:
-                    jokeObj = _a.sent();
-                    if (jokeText) {
-                        jokeText.innerHTML = jokeObj.joke;
+                    weatherData = _a.sent();
+                    weatherContainer = document.getElementById('weather-container');
+                    if (weatherContainer) {
+                        weatherContainer.innerHTML = "<p>Temperatura: ".concat(weatherData.temperature, " \u00B0C</p>\n                                          <p>Descripci\u00F3: ").concat(weatherData.description, "</p>");
                     }
                     return [3 /*break*/, 4];
                 case 3:
                     error_1 = _a.sent();
-                    console.error('Error al obtener el chiste:', error_1);
+                    console.error('Error al obtenir la informació meteorològica:', error_1);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }

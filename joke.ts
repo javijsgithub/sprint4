@@ -3,6 +3,7 @@ interface Joke {
 }
 
 
+
 document.addEventListener('DOMContentLoaded', getJoke);
 
 if (button) {
