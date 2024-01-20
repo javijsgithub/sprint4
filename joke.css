@@ -1,0 +1,35 @@
+body {
+    background-image: url(Imagenes/smilies-3613848_1280.jpg);
+    background-size: 1300px;
+
+}
+
+.col-joke {
+    margin: auto;
+    background-color: rgb(243, 243, 70);
+    opacity: 0.7;
+    margin-top: 250px;
+    width: 450px;
+    border-radius: 15px;
+    padding: 25px;
+    
+}
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: black;
+    
+}
+p {
+    font-size: 18px;
+    color: black;
+    
+}
+.joke {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.btn-dark {
+    margin-left: 150px;
+    color: rgb(255, 255, 74);
+}
