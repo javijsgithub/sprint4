@@ -2,6 +2,11 @@ interface Joke {
     joke: string;
 }
 
+const apis = [
+    'https://icanhazdadjoke.com/',
+    'https://api.chucknorris.io/jokes/random'
+];
+
 
 
 document.addEventListener('DOMContentLoaded', getJoke);
@@ -12,7 +17,10 @@ if (button) {
 
 async function get(): Promise<void> {
     try {
-        const jokeData = await fetch('https://icanhazdadjoke.com/', {
+        const randomApi = Math.floor(Math.random() * apis.length);
+        const selectApi = apis[randomApi];
+
+        const jokeData = await fetch(selectApi, {
             headers: {
                 'Accept': 'application/json'
             }

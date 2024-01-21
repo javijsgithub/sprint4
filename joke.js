@@ -34,6 +34,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var api = [
+    'https://icanhazdadjoke.com/',
+    'https://api.chucknorris.io/jokes/random'
+];
 var button = document.querySelector('.container button');
 var jokeText = document.querySelector('.container p');
 document.addEventListener('DOMContentLoaded', getJoke);
@@ -42,12 +46,14 @@ if (button) {
 }
 function getJoke() {
     return __awaiter(this, void 0, void 0, function () {
-        var jokeData, jokeObj, error_1;
+        var randomApi, selectApi, jokeData, jokeObj, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 3, , 4]);
-                    return [4 /*yield*/, fetch('https://icanhazdadjoke.com/', {
+                    randomApi = Math.floor(Math.random() * api.length);
+                    selectApi = api[randomApi];
+                    return [4 /*yield*/, fetch(selectApi, {
                             headers: {
                                 'Accept': 'application/json'
                             }
